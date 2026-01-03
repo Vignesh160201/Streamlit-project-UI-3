@@ -57,7 +57,7 @@ with tab6:
     #st.json(ckc_data)
     #st.json(other_details_data)
 
-    if diabetes_data or demographics_data or kidney_data or ckc_data or other_details_data:
+    if demographics_data is not None and diabetes_data is not None and kidney_data is not None and  ckc_data is not None and other_details_data is not None :
 
         demographics_df=pd.DataFrame([demographics_data])
         diabetes_df = pd.DataFrame([diabetes_data])
