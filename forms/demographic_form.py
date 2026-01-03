@@ -36,6 +36,17 @@ def demographics_form():
             horizontal=True
         )   
             employment_status = employmentStatus_options[employment_status_lablel]
+            
+            smoking_label = st.toggle("Smoking")
+
+            smoking = 1 if smoking_label else 0
+
+            alcohol_consumption = st.slider(
+            "Alcohol Consumption Rating (0 = No ,1 = Very Low, 10 = Very High)",
+            min_value=0,
+            max_value=10,
+            value=1    )
+            
             # colum 1 ends here
         
         # colum 2 starts here
@@ -62,20 +73,17 @@ def demographics_form():
         )
             income_level = socioeconomicStatus_options[income_level_label]
 
-            bmi_value=st.slider("BMI",min_value=15,max_value=50,value=24)
+            height_value=st.number_input("Height - in cm",min_value=100,max_value=250,value=150)
+            weight_value=st.number_input("Weight - in kg",min_value=30,max_value=150,value=70)
+
+            bmi_value=st.number_input("BMI - kg/m²",min_value=15,max_value=50,value=24)
             
             # colum 2 starts here
 
         #common pane starts here
-        smoking_label = st.toggle("Smoking")
 
-        smoking = 1 if smoking_label else 0
         
-        alcohol_consumption = st.slider(
-            "Alcohol Consumption Rating (0 = No ,1 = Very Low, 10 = Very High)",
-            min_value=0,
-            max_value=10,
-            value=0    )
+        
 
 
         diet_score = st.slider(
@@ -108,7 +116,9 @@ def demographics_form():
             "AlcoholConsumption": alcohol_consumption,
             "SleepQuality": sleep_score,
             "bmi": bmi_value,
-            "DietQuality": diet_score
+            "DietQuality": diet_score,
+            "Height_cm": height_value,
+            "Weight_kg": weight_value
         }
             
             save_popup()

@@ -57,25 +57,3 @@ def model_predict(df1, df2, path, diseases_name):
     return result_df
 
 
-def view_demographics_data(df):
-        
-    df['Gender'] = df['Gender'].map(reverse_gender_options)
-    df['Ethnicity'] = df['Ethnicity'].map(reverse_ethnicity_options)
-    df['EducationLevel'] = df['EducationLevel'].map(reverse_education_level_options)
-    df['SocioeconomicStatus'] = df['SocioeconomicStatus'].map(reverse_socioeconomicStatus_options)
-    df['EmploymentStatus'] = df['EmploymentStatus'].map(reverseemploymentStatus_options)
-    
-    dis1=df.T.reset_index() 
-    dis1.columns = ["Demographics Parameter", "Patient Value"]
-    dis1.index=dis1.index+1
-    st.dataframe(dis1)
-
-
-def view_diabetes_data(df):
-        
-    df['Smoking_status'] = df['Smoking_status'].map(reverse_smoking_options)
-
-    dis2=df.T.reset_index() 
-    dis2.columns = ["Diabetic Parameter", "Patient Value"]
-    dis2.index=dis2.index+1
-    st.dataframe(dis2)

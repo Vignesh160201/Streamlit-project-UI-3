@@ -16,6 +16,8 @@ from methods.custom_funtions import clear_data_dialog
 from model_func.predictive_modeling import *
 from forms.form_variables import diabetes_model_path,kidney_model_path,colorectal_cancer_model_path,heart_disease_model_path
 
+from methods.custom_funtions import *
+
 st.set_page_config(
     page_title="Health Prediction System",
     layout="wide"
@@ -65,32 +67,31 @@ with tab6:
 
         heart_df=pd.concat([diabetes_df, other_df], axis=1)
 
-        #view_demographics_data(demographics_df)
-        dis1=demographics_df.T.reset_index() 
-        dis1.columns = ["Demographics Parameter", "Patient Value"]
-        dis1.index=dis1.index+1
-        st.dataframe(dis1)
         
-        #view_diabetes_data(diabetes_df)
-        dis2=diabetes_df.T.reset_index() 
-        dis2.columns = ["Diabetic Parameter", "Patient Value"]
-        dis2.index=dis2.index+1
-        st.write(dis2)
+        dis1=view_demographics_data(demographics_df) 
+        dis1.columns = ["Demographics Features", "Demographics Value"]
+        #st.dataframe(dis1)
+        
+        dis2=view_diabetes_data(diabetes_df)
+        dis2.columns = ["Diabetic Features", "Diabetes Value"]
+        #st.dataframe(dis2)
 
-        dis3=kidney_df.T.reset_index() 
-        dis3.columns = ["Kidney Parameter", "Patient Value"]
-        dis3.index=dis3.index+1
-        st.write(dis3)
+        dis3=view_kidney_data(kidney_df)
+        dis3.columns = ["Kidney Features", "Kidney Value"]
+        #st.dataframe(dis3)
 
-        dis4=ckc_dietary_df.T.reset_index() 
-        dis4.columns = ["Colorectal Cancer Dietary Parameter", "Patient Value"]
-        dis4.index=dis4.index+1
-        st.write(dis4)
+        dis4=view_ckc_dietary_data(ckc_dietary_df) 
+        dis4.columns = ["Colorectal Cancer Dietary Features", "Value"]
+        #st.dataframe(dis4)
 
-        dis5=other_df.T.reset_index() 
-        dis5.columns = ["Other Health Parameter", "Patient Value"]
-        dis5.index=dis5.index+1
-        st.write(dis5)
+        dis5=view_other_data(other_df) 
+        dis5.columns = ["Other Health Features", "Patient Value"]
+        #st.dataframe(dis5)
+
+        dis6=pd.concat([dis1,dis2,dis3,dis4,dis5],axis=1)
+        st.dataframe(dis6)
+
+        
 
 
     else:
