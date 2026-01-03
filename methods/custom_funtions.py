@@ -19,11 +19,16 @@ def clear_data_dialog():
 
         st.rerun()
 
+@st.dialog("Prediction Results 🧹")
+def prediction_success():
+    st.success("Prediction completed. Please check the results.")
+
+
 def view_demographics_data(df0):
         
     df= df0.copy()
     df1=pd.DataFrame()
-    df1['Name'] = df['name']
+    df1['Patient Name'] = df['name']
     df1['Age'] = df['Age']
     df1['Gender'] = df['Gender'].map(reverse_gender_options)
     df1['Ethnicity'] = df['Ethnicity'].map(reverse_ethnicity_options)

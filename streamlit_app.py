@@ -91,46 +91,44 @@ with tab6:
         dis6=pd.concat([dis1,dis2,dis3,dis4,dis5],axis=1)
         st.dataframe(dis6)
 
-        
-
 
     else:
         st.warning("Data not available")
 
 
     if st.button("Predict"):
-
+        
         if(demographics_data is None or diabetes_data is None or kidney_data is None or ckc_data is None or other_details_data is None):
             
             st.error("Please fill 2 or more forms atleast before making predictions.")
+
         else:
+
             diabetes_preditions=model_predict(demographics_df,diabetes_df,diabetes_model_path,"Diabetes Prediction Results")
             #st.dataframe(diabetes_preditions)
-            
+                    
             kidney_predictions=model_predict(demographics_df,kidney_df,kidney_model_path,"Kidney Disease Prediction Results")
             #st.dataframe(kidney_predictions)
 
             colorectal_cancer_predictions=model_predict(demographics_df,ckc_dietary_df,colorectal_cancer_model_path,
-                                                        "Colorectal Cancer Prediction Results")
+                                                                    "Colorectal Cancer Prediction Results")
             #st.dataframe(colorectal_cancer_predictions)
 
             heart_disease_predictions=model_predict(demographics_df,heart_df,heart_disease_model_path,
-                                                    "Heart Disease Prediction Results")
+                                                                "Heart Disease Prediction Results")
             #st.dataframe(heart_disease_predictions)
 
             df = pd.concat([
-                diabetes_preditions.iloc[:, [ -1]],
-                kidney_predictions.iloc[:, [-1]],
-                colorectal_cancer_predictions.iloc[:, [-1]],
-                heart_disease_predictions.iloc[:, [-1]]
-            ], axis=1)      
+                            diabetes_preditions.iloc[:, [ -1]],
+                            kidney_predictions.iloc[:, [-1]],
+                            colorectal_cancer_predictions.iloc[:, [-1]],
+                            heart_disease_predictions.iloc[:, [-1]]
+                        ], axis=1)      
 
             import matplotlib.pyplot as plt
 
-            # Data from DataFrame
+                        # Data from DataFrame
                         # Automatically pick columns
-            label_col = df.columns   # Feature
-            value_col = df.iloc[0]# Binary Value (0/1)
 
             labels = df.columns.tolist()
             values = df.iloc[0].tolist()
@@ -142,27 +140,48 @@ with tab6:
             # Plot
             fig, ax = plt.subplots()
 
-            ax.pie(
-                sizes,
-                labels=[f"{l}\n{v}" for l, v in zip(labels, values)],
-                colors=colors,
-                startangle=90,
-                wedgeprops={'width': 0.4, 'edgecolor': 'black'}
-            )
+            ax.pie( sizes,
+                    labels=[f"{l}\n{v}" for l, v in zip(labels, values)],
+                            colors=colors,
+                            startangle=90,
+                            wedgeprops={'width': 0.4, 'edgecolor': 'black'}
+                        )
 
             ax.set_title("Binary Donut Visualization")
             ax.axis('equal')
 
             #Streamlit display
-            st.pyplot(fig)
-            
+            st.pyplot(fig) 
+            st.write(df)           
+                    
             st.success("Prediction completed. Please check the results above.")
 
-    if st.checkbox("Accuracy Details"):
-        st.dataframe(diabetes_preditions)
-        st.dataframe(kidney_predictions)
-        st.dataframe(colorectal_cancer_predictions)
-        st.dataframe(heart_disease_predictions)
+
+    if st.checkbox("Prediction Details"):
+
+        if 'diabetes_preditions' in locals():
+            st.dataframe(diabetes_preditions)
+        else:
+            st.warning("⚠️ Diabetes prediction not available")
+
+        if 'kidney_predictions' in locals():
+            st.dataframe(kidney_predictions)
+        else:
+            st.warning("⚠️ Kidney prediction not available")
+
+        if 'colorectal_cancer_predictions' in locals():
+            st.dataframe(colorectal_cancer_predictions)
+        else:
+            st.warning("⚠️ Colorectal cancer prediction not available")
+
+        if 'heart_disease_predictions' in locals():
+            st.dataframe(heart_disease_predictions)
+        else:
+            st.warning("⚠️ Heart disease prediction not available")
+
+    else:
+
+        st.info("Click check box option for Predition Details before predict button")
 
     if st.button("🧹 Clear All Data"):
         clear_data_dialog()
