@@ -1,0 +1,15 @@
+streamlit
+scikit-learn
+joblib
+pandas
+numpy
+xgboost
+lightgbm
+matplotlib
+seaborn
+plotly
+python-dotenv
+streamlit-option-menu
+Pillow
+streamlit-aggrid
+streamlit-extras
