@@ -145,7 +145,7 @@ def view_ckc_dietary_data(df0):
     df1.rename(columns={'Family_History_CRC': 'Family_History_CRC'}, inplace=True)
 
     #Lifestyle & Dietary Habits
-    df1['Pre-existing Conditions']=df['Pre-existing Conditions'].map(reverse_pre_existing_conditions_options)
+    df1['Pre-existing-Conditions']=df['Pre-existing-Conditions'].map(reverse_pre_existing_conditions_options)
     df1['Family History of  Cancer']=df['Family_History_CRC'].map({1:'Yes',0:'No'})
     df1['Lifestyle']=df['Lifestyle'].map(reverselifestyle_options)
 
