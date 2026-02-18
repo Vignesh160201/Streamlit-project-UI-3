@@ -105,12 +105,12 @@ def ckc_dietary_details_form():
                 'Lifestyle': lifestyle,
                 'Family_History_CRC': family_history,
                 'Pre-existing Conditions': pre_existing_conditions,
-                'Carbohydrates (g)':carbohydrates,
-                'Proteins (g)':proteins,	
-                'Fats (g)':fats,
-                'Vitamin A (IU)':vitamin_a,
-                'Vitamin C (mg)':vitamin_c,
-                'Iron (mg)':iron
+                'Carbohydrates(g)':carbohydrates,
+                'Proteins(g)':proteins,	
+                'Fats(g)':fats,
+                'Vitamin_A(IU)':vitamin_a,
+                'Vitamin_C(mg)':vitamin_c,
+                'Iron(mg)':iron
 
             }
         
