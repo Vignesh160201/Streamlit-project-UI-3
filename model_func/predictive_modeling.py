@@ -32,7 +32,10 @@ def model_predict(df1, df2, path, diseases_name):
 
         # Required columns from model
         cols = model.feature_names_in_
-
+        print(cols)
+        print(raw_data[cols])
+        print(model_path)
+        
         # Ensure all columns exist
         missing_cols = set(cols) - set(raw_data.columns)
         if missing_cols:
@@ -43,7 +46,7 @@ def model_predict(df1, df2, path, diseases_name):
 
         # Clean model name (portable)
         model_name = os.path.splitext(os.path.basename(model_path))[0]
-
+        
         result_df[model_name] = prediction
 
     # Insert disease name
