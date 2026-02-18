@@ -1,15 +1,63 @@
-streamlit
-scikit-learn
-joblib
-pandas
+# Core Python
 numpy
+pandas
+scipy
+
+# Machine Learning
+scikit-learn
 xgboost
 lightgbm
+catboost
+imbalanced-learn
+
+# Deep Learning (for tabular + healthcare)
+tensorflow
+keras
+torch
+torchvision
+torchaudio
+
+# Explainability
+shap
+lime
+
+# Visualization
 matplotlib
 seaborn
 plotly
-python-dotenv
-streamlit-option-menu
-Pillow
-streamlit-aggrid
-streamlit-extras
+
+#User Interface
+streamlit
+
+# Feature Engineering & Stats
+statsmodels
+category-encoders
+
+# Data Handling
+openpyxl
+xlrd
+pyarrow
+
+# Model Persistence
+joblib
+pickle-mixin
+
+# Utilities
+tqdm
+pyyaml
+
+# Jupyter & Notebooks
+jupyter
+notebook
+ipykernel
+
+# Optional: Hyperparameter Optimization
+optuna
+
+# Optional: Deployment (if needed later)
+flask
+fastapi
+uvicorn
+
+# Optional: Data Validation
+great-expectations
