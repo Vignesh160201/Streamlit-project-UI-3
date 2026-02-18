@@ -104,7 +104,7 @@ def ckc_dietary_details_form():
 
                 'Lifestyle': lifestyle,
                 'Family_History_CRC': family_history,
-                'Pre-existing Conditions': pre_existing_conditions,
+                'Pre-existing-Conditions': pre_existing_conditions,
                 'Carbohydrates(g)':carbohydrates,
                 'Proteins(g)':proteins,	
                 'Fats(g)':fats,
