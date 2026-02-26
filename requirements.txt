@@ -12,7 +12,6 @@ catboost
 imbalanced-learn
 
 # Deep Learning (for tabular + healthcare)
-tensorflow
 keras
 torch
 torchvision
@@ -47,20 +46,6 @@ pickle-mixin
 tqdm
 pyyaml
 
-# Jupyter & Notebooks
-jupyter
-notebook
-ipykernel
-
-# Optional: Hyperparameter Optimization
-optuna
-
-# Optional: Deployment (if needed later)
-flask
-fastapi
-uvicorn
-
-# Optional: Data Validation
-great-expectations
-
+tensorflow==2.15.0 
 protobuf==3.20.3
+
