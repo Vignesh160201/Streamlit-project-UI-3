@@ -27,7 +27,8 @@ seaborn
 plotly
 
 #User Interface
-streamlit
+streamlit==1.29.0
+altair==4.2.2
 
 # Feature Engineering & Stats
 statsmodels
