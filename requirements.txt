@@ -1,3 +1,4 @@
+
 # Core Python
 numpy
 pandas
@@ -61,3 +62,5 @@ uvicorn
 
 # Optional: Data Validation
 great-expectations
+
+protobuf==3.20.3
