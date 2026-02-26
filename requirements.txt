@@ -46,6 +46,3 @@ pickle-mixin
 tqdm
 pyyaml
 
-tensorflow==2.15.0 
-protobuf==3.20.3
-
